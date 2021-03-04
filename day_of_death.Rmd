@@ -14,7 +14,7 @@ library(tidyverse)
 # We are using the data.table package because it is faster. Note how it also
 # provides a handier error message about the bad line in the file.
 
-x <- data.table::fread("bunmd_v2.csv") %>% 
+x <- data.table::fread("~/bunmd_v2.csv") %>% 
   as_tibble()
 ```
 
