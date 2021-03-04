@@ -30,6 +30,26 @@ small %>%
   ggplot(aes(x = dday)) +
   geom_bar()
 
+```
+
+```{r}
+
+ # year to the ratio of deaths on the 1st to 2nd 
+
+x %>%
+  filter(dday == 1 | dday == 2) %>%
+  group_by(dyear, dday) %>%
+  summarize(death = n(),
+            .groups = "drop") %>%
+  pivot_wider(names_from = dday, 
+              values_from = death) %>%
+  mutate(ratio = `1`/`2`) %>%
+  
+  ggplot(aes(x = dyear,
+             y = ratio)) +
+  geom_point()
+
 
 ```
+
 
